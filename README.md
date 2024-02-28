@@ -1,6 +1,8 @@
-## Airbnb Apartment Data Analysis
-Project Overview
-This project aims to uncover insights into the trends, durations, seasonality, and availability of Airbnb apartments across various locations. By analyzing a comprehensive dataset of Airbnb listings, our team seeks to identify patterns that can inform both hosts and guests about the dynamics of the Airbnb market. This analysis could be beneficial for optimizing listing prices, understanding peak travel times, and improving the overall Airbnb experience.
+# What is the impact of Summer Festivals on Airbnb Listings
+## Project Overview
+Summer festivals offer a fun and engaging experience that attracts more people every year, from all over the world. Factors like artist line up, type of activities or the city where the festival is located contribute to people traveling for these events. 
+Our research has the goal of understanding how Airbnb prices fluctuate during festival season, since this information is crucial for both travelers and hosts. For travelers, such information can aid in budget planning and accommodation selection during festival seasons, potentially optimizing their overall experience. Additionally, for hosts, insights into pricing dynamics during these peak periods can inform strategic pricing decisions, maximizing revenue generation. 
+For this research we will analyze the impact of a popular festival in Barcelona, “Primavera Sound” on the Airbnb availability and prices.
 
 ## Objectives
 Trend Analysis: Identify the overall trends in the Airbnb market, including growth patterns and shifts in consumer preferences.
