@@ -19,35 +19,26 @@ Regression Analysis is the method used in this research, since it is a powerful 
 
 | Variables | Description |
 |----------|----------|
-| Row 1    | Data 1   |
-| Row 2    | Data 3   |
+| City   | City of the festival   |
+| Dates    | The dates during the festival - 29 May to 02 June   |
+| Price    | Listing prices   |
+| Capacity    | Number of tenants   |
+| Distance to the festival    | Distance in km from the apartment to the festival   |
+| ...    | ...   |
+
 
 
 ## Repository Overview
-Our analysis utilizes a combination of statistical methods and machine learning models to dissect the Airbnb data. We employ Python for data cleaning, transformation, and analysis, with libraries such as Pandas for data manipulation, Matplotlib and Seaborn for visualization, and Scikit-learn for predictive modeling.
+xxx
 
 ## Running instructions
-Trends: [Summary of key trends observed]
-Duration: [Insights on the typical durations of stays]
-Seasonality: [Analysis of seasonality patterns in data]
-Availability: [Findings on the factors affecting availability]
-How to Use This Repository
-Data Folder: Contains the raw and processed datasets used in the analysis.
-Notebooks Folder: Includes Jupyter notebooks detailing the analytical process, from data cleaning to in-depth analysis.
-Scripts Folder: Contains Python scripts for data processing and analysis.
-Results Folder: Hosts output files such as figures, tables, and model predictions.
-Installation and Requirements
-To replicate this analysis, you will need Python 3.x and the following libraries:
+xxx
 
 ## More resources
-Pandas
-NumPy
-Matplotlib
-Seaborn
-Scikit-learn
+xxx
 
 ## About
-This repository is made i the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program. Team 6 worked on it, including:
+This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program. Team 6 worked on it, including:
 
 Catarina Luís Ferreira
 Joachiem Swart
