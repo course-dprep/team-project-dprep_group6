@@ -24,7 +24,11 @@ Regression Analysis is the method used in this research, since it is a powerful 
 | Price    | Listing prices   |
 | Capacity    | Number of tenants   |
 | Distance to the festival    | Distance in km from the apartment to the festival   |
-| ...    | ...   |
+| host_id    | ...   |
+| Neighbourhood    | ...   |
+| Latitude    | ...   |
+| Longitude    | ...   |
+
 
 
 
