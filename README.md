@@ -45,7 +45,11 @@ xxx
 This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program. Team 6 worked on it, including:
 
 Catarina Luís Ferreira
+
 Joachiem Swart
+
 Rebecca Keijzer
+
 Zeynep Yardimci Karaca
+
 
