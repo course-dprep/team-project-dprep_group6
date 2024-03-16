@@ -33,10 +33,11 @@ Regression Analysis is the method used in this research, since it is a powerful 
 
 
 ## Repository Overview
-xxx
-**src:** Includes source codes for data preparation and analysis
-**data:** Raw data
-**gen:** Analysis results, figures, and temporary files
+
+###**src:** Includes source codes for data preparation and analysis
+###**data:** Raw data
+###**gen:** Analysis results, figures, and temporary files
+
 ## Running instructions
 xxx
 
@@ -44,8 +45,9 @@ xxx
 xxx
 
 ## About
-This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program. Team 6 worked on it, including:
+This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program.
 
+## Authors
 Catarina Luís Ferreira
 
 Zeynep Yardimci Karaca
