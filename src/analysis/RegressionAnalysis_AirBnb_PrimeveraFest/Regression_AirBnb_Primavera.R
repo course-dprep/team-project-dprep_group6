@@ -6,7 +6,7 @@ library(readr)
 listings=read_csv("listings.csv")
 library(data.table)
 library(tidyverse)
-  
+
 #upload the files 
 listings = download.file('http://data.insideairbnb.com/spain/catalonia/barcelona/2023-12-13/visualisations/listings.csv', 'listings.csv')
 calendar = download.file('http://data.insideairbnb.com/spain/catalonia/barcelona/2023-12-13/data/calendar.csv.gz', 'calender.csv')
@@ -14,17 +14,17 @@ calendar=read_csv("calendar.csv")
 setDT(calendar)
 listings<- read_csv("listings.csv")
 setDT(listings)
-  
+
 #calendar[, date_fest := date=="2023-06-04" || date=="2023-06-03" || date=="2023-06-02" || date=="2023-06-01" || date=="2023-05-30" || date=="2023-05-29"]
 calendar[, date_fest := date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
 fest_cal = calendar[calendar$date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
 
- 
+
 #Merge listings and calendar
 
 listings_calendar<- fest_cal %>% left_join(listings, by=join_by(listing_id==id))
 
-  
+
 #PARC DEL FORUM LOCATION
 # Latitude: 41° 24' 23.99" N --> 41.40666389
 # Longitude: 2° 13' 8.52" E --> 2.21903333
@@ -57,6 +57,8 @@ table(coord_df$within_5km)
 #> FALSE  TRUE
 #>    13    44
 
+##### REGRESSION ANALYSIS
 
 
-#group
+
+

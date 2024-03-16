@@ -34,7 +34,9 @@ Regression Analysis is the method used in this research, since it is a powerful 
 
 ## Repository Overview
 xxx
-
+**src:** Includes source codes for data preparation and analysis
+**data:** Raw data
+**gen:** Analysis results, figures, and temporary files
 ## Running instructions
 xxx
 
@@ -46,10 +48,8 @@ This repository is made in the scope of the Data Preparation and Workflow Manage
 
 Catarina Luís Ferreira
 
-Joachiem Swart
-
-Rebecca Keijzer
-
 Zeynep Yardimci Karaca
 
+Rebecca Keijzer 
 
+Joachiem Swart
