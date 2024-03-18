@@ -1,0 +1,85 @@
+---
+title: "Raw data Airbnb"
+output: pdf_document
+date: "2024-03-07"
+---
+
+```{r, echo=FALSE}
+library(tidyverse)
+listings <- read_csv('listings.csv')
+calendar <- read_csv('calender.csv')
+
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+```{r include=FALSE}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+## Analysis of the raw data files
+
+This document shows an analysis of the raw data files for the listings and calendar from airbnb in Barcelona.
+
+```{r}
+summary(listings)
+summary(calendar)
+```
+
+## Listings
+The data set 'Listings.csv' contains information for the listings on the site, like the host, location, reviews, etc. 
+Below are all of the variables from the dataset:
+
+- 'id': the id number of the listing
+- 'name': the title of the listing on the website
+- 'host_id': the id number of the host
+- 'host_name': the name of the host
+- 'neighbourhood_group': the group of neighbourhoods in Barcelona that the room or apartment is located
+- 'neighbourhood': the neighbourhood in Barcelona that the room or apartment is located
+- 'latitude': the geographic coordinate that refers to the north-south position of the listing
+- 'longitude': the geographic coordinate that refers to the east-west position of the listing
+- 'roomtype': whether the listing is for an entire home/apartment or a private room
+- 'price': the price of the listing
+- 'minimum_nights': the minimum amount of nighst you have to rent the room or apartment
+- 'number_of_reviews': the numver of reviews left for the listing
+- 'last_review': the date of when the last review was posted for the listing
+- 'reviews_per_month': the amount of reviews the listing on average gets per month
+- 'calculated_host_listings_count': the total number of listings managed by the host
+- 'availability_365': the number of days the listing is available to be booked per year
+- 'number_of_reviews_ltm': the number of reviews that were written for this listing in the last twelve month
+
+
+## Calender
+
+- 'listings-id': the id number of the listing
+- 'date': the date that the data was retrieved
+- 'available': whether the listing is available
+- 'price': the price to rent the listing
+- 'adjusted_price': 
+- 'minimum_nights': the minimum amount of nights you have to rent the room or apartment
+- 'maximum_night': the maximum amount of nights you can rent the room or apartment
+
+
+```{r}
+
+
+
+
+```
+
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
