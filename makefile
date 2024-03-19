@@ -1,13 +1,14 @@
-plot_all.pdf: run_antwerp.R aggregated_df.csv
-	R --vanilla < run_antwerp.R
-	
-clean: 
-	R -e "unlink('*.pfd')"
-	R -e "unlink('*.csv')"
-	
-../temp/listings.csv reviews.csv:
-	R --vanilla < download.R
-	
-aggregated_df.csv: reviews.csv listings.csv preclean.R
-	R --vanilla < pre_clean.R
-	
+# Define targets
+all: cleaned_filtered_data regression_analysis
+
+clean:
+    # Remove any generated files
+    rm -rf src/data_prep/*.csv
+
+cleaned_filtered_data:
+    # Use a tab character for indentation
+    R --vanilla < src/cleaned_filtered_data.R
+
+regression_analysis:
+    # Use a tab character for indentation
+    R --vanilla < src/regression_analysis.R
