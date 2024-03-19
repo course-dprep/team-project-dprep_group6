@@ -68,12 +68,42 @@ close_to_the_festival <- coord_df %>% filter(within_5km == TRUE)
 ## data set of the festival
 during_festival <- left_join(close_to_the_festival, listings_calendar, by = join_by(listings_calendar.listing_id==listing_id)) 
 
+# remove the dollar signs in front of the prices and convert the variable to a numeric
+during_festival$price.x <- as.numeric(gsub("\\$", "", during_festival$price.x))
+
+
 ## create the data sets of 2 weeks before the festival
 calendar[, date_fest := date %in% c("xxxx")]
 weeks_prior <- calendar %>% filter (date >= as.Date("2024-05-15") & date <= as.Date("2024-05-28"))
 ## create the data set 2 weeks after the festival
 weeks_after <- calendar %>% filter (date >= as.Date("2024-06-03") & date <= as.Date("2024-06-17"))
 
-# Merge both data sets to have the comparisson data
+# Merge both data sets to have the comparison data
 off_festival <- union(weeks_prior,weeks_after)
+
+# remove the dollar signs in front of the prices and convert the variable to a numeric
+off_festival$price <- as.numeric(gsub("\\$", "", off_festival$price))
+
+# create a dataset with the prices from off and during festival for bothe price.x and price.y
+during_festival_price.x <- rename(during_festival, price = price.x)
+
+combined_price.x <- bind_rows(
+  mutate(during_festival_price.x, dataset = "during_festival"),
+  mutate(off_festival, dataset = "off_festival")
+) %>%
+  select(price, dataset)
+
+during_festival_price.y <- rename(during_festival, price = price.y)
+
+combined_price.y <- bind_rows(
+  mutate(during_festival_price.y, dataset = "during_festival"),
+  mutate(off_festival, dataset = "off_festival")
+) %>%
+  select(price, dataset)
+
+# save the output
+write_csv(during_festival, "src/data_prep/during_festival_data_cleaned.csv")
+write_csv(off_festival, "src/data_prep/off_festival_data_cleaned.csv")
+write_csv(combined_price.x, "src/data_prep/combined_price.x.csv")
+write_csv(combined_price.y, "src/data_prep/combined_price.y.csv")
 
