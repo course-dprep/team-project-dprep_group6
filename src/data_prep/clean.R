@@ -8,6 +8,9 @@ library(data.table)
 library(tidyverse)
 install.packages("geosphere")
 
+calendar <- fread('calendar.csv.gz')
+listings <- read_csv('listings.csv')
+
 #calendar[, date_fest := date=="2023-06-04" || date=="2023-06-03" || date=="2023-06-02" || date=="2023-06-01" || date=="2023-05-30" || date=="2023-05-29"]
 calendar[, date_fest := date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
 fest_cal = calendar[calendar$date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
@@ -92,8 +95,8 @@ combined_price.y <- bind_rows(
   select(price, dataset)
 
 # save the output
-write_csv(during_festival, "src/data_prep/during_festival_data_cleaned.csv")
-write_csv(off_festival, "src/data_prep/off_festival_data_cleaned.csv")
-write_csv(combined_price.x, "src/data_prep/combined_price.x.csv")
-write_csv(combined_price.y, "src/data_prep/combined_price.y.csv")
+write_csv(during_festival, "during_festival_data_cleaned.csv")
+write_csv(off_festival, "off_festival_data_cleaned.csv")
+write_csv(combined_price.x, "combined_price.x.csv")
+write_csv(combined_price.y, "combined_price.y.csv")
 
