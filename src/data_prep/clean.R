@@ -85,6 +85,6 @@ combined_price <- bind_rows(
   select(price, dataset)
 
 # save the output
-write_csv(during_festival, "src/data_prep/during_festival_data_cleaned.csv")
-write_csv(off_festival, "src/data_prep/off_festival_data_cleaned.csv")
-write_csv(combined_price, "src/data_prep/combined_price.csv")
+write_csv(during_festival, "during_festival_data_cleaned.csv")
+write_csv(off_festival, "off_festival_data_cleaned.csv")
+write_csv(combined_price, "combined_price.csv")
