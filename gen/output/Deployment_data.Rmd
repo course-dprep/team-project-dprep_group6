@@ -1,0 +1,51 @@
+---
+title: "The influence of the Primavera Sound festival on Airbnb prices"
+output: pdf_document
+date: "2024-03-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message = FALSE, include=FALSE}
+load("model_results.RData")
+
+```
+
+## Hypotheses
+
+In this paper we are researching two hypoteses, concerning Airbnb prices during the festival Primavera Sound in Barcelona. The two research questions we are looking into are: 
+
+"Does the presence of a Summer Music Festival influence the prices of Airbnb listings in the respective city?"
+
+"Is it possible to create a model that helps Airbnb hosts to define the pricings of their listings?"
+
+To answer these hypotheses, two datasets for Airbnb listings are used and analyzed. From the data sets, the prices from during and before/after the festival are compared for the listings that are within 5 kilometers of the festival. The research objective is to discover if the prices for the Airbnb listings during the festival are different from normal, and if a model can be created that predicts these price differences. 
+
+```{r, message=FALSE, echo=FALSE}
+summary(minimum_nights_during_festival)
+
+```
+
+```{r}
+
+
+```
+
+## Research method
+
+For the analysis of this research the means for the prices of the listings within 5 kilometers of the festival, are calculated and compared for during the festival and before/after. Moreover, four different linear regression are performed to get a deeper understanding of the differences between these periods. 
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
