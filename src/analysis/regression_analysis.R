@@ -30,7 +30,7 @@ summary(minimum_nights_off_festival)
 minimum_nights_during_festival <- lm(price ~ minimum_nights.y, data = during_festival)
 summary(minimum_nights_during_festival)
 
-
+save(mean_price_during,mean_price_off,price_off_during,everything_during_festival,minimum_nights_off_festival,minimum_nights_during_festival,file="./gen/analysis/output/model_results.RData")
 
 
 
