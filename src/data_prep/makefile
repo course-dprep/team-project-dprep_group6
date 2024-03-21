@@ -1,8 +1,7 @@
 all: clean.R
 
-clean: 
-	r --e "unlink("*.csv")"
-	r --e "unlink("*.csv.gz")"
+clean: 	rm -f "unlink("*.csv")"	
+	rm -f "unlink("*.csv.gz")"
 
 clean.R: listings.csv calendar.csv.gz download.R
 	R --vanilla < clean.R
