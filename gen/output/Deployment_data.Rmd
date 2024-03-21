@@ -10,7 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, message = FALSE, include=FALSE}
 load("model_results.RData")
-
+install.packages("kableExtra", repos = "https://cloud.r-project.org/")
+library(kableExtra)
 ```
 
 ## Hypotheses
@@ -23,19 +24,54 @@ In this paper we are researching two hypoteses, concerning Airbnb prices during 
 
 To answer these hypotheses, two datasets for Airbnb listings are used and analyzed. From the data sets, the prices from during and before/after the festival are compared for the listings that are within 5 kilometers of the festival. The research objective is to discover if the prices for the Airbnb listings during the festival are different from normal, and if a model can be created that predicts these price differences. 
 
-```{r, message=FALSE, echo=FALSE}
-summary(minimum_nights_during_festival)
 
-```
-
-```{r}
-
-
-```
 
 ## Research method
 
 For the analysis of this research the means for the prices of the listings within 5 kilometers of the festival, are calculated and compared for during the festival and before/after. Moreover, four different linear regression are performed to get a deeper understanding of the differences between these periods. 
+
+```{r, message=FALSE, echo=FALSE}
+coefficients <- coef(minimum_nights_during_festival)
+std_errors <- summary(minimum_nights_during_festival)$coef[, "Std. Error"]
+t_values <- coefficients / std_errors
+p_values <- summary(minimum_nights_during_festival)$coef[, "Pr(>|t|)"]
+
+# Create a data frame with the extracted information
+regression_summary <- data.frame(
+  Coefficients = coefficients,
+  `Std. Error` = std_errors,
+  `t value` = t_values,
+  `Pr(>|t|)` = p_values
+)
+
+kable(regression_summary, format = "markdown", digits = 4) %>%
+  kable_styling() %>%
+  add_header_above(c(" ", "The effect of the minimum amounts of nights on the price of a listing during the festival" = 4))
+
+```
+
+
+```{r, message=FALSE, echo=FALSE}
+coefficients2 <- coef(minimum_nights_off_festival)
+std_errors2 <- summary(minimum_nights_off_festival)$coef[, "Std. Error"]
+t_values2 <- coefficients2 / std_errors2
+p_values2 <- summary(minimum_nights_off_festival)$coef[, "Pr(>|t|)"]
+
+# Create a data frame with the extracted information
+regression_summary2 <- data.frame(
+  Coefficients = coefficients2,
+  `Std. Error` = std_errors2,
+  `t value` = t_values2,
+  `Pr(>|t|)` = p_values2
+)
+
+kable(regression_summary, format = "markdown", digits = 4) %>%
+  kable_styling() %>%
+  add_header_above(c(" ", "The effect of the minimum amounts of nights on the price of a listing before and after the festival" = 4))
+
+```
+
+
 ```{r cars}
 summary(cars)
 ```
