@@ -54,9 +54,58 @@ The influences on the price during the festival season was researched with the h
 |-- .gitignore
 |-- README.md
 |-- makefile
+
 ```
 ## Running instructions
-xxx
+
+### Required software
+For this research and to run this workflow, the following software needs to be ready to use:
+
++ **Git**: this allows to access the repository locally. For installation and more information check the [tutorial](https://tilburgsciencehub.com/topics/automation/version-control/start-git/git/) at [Tilburg Science Hub](https://tilburgsciencehub.com).
+   
++ **R Studio**: the code that runs the project was created using RStudio. For installation and more information check the [tutorial](https://tilburgsciencehub.com/topics/computer-setup/software-installation/rstudio/r/) at [Tilburg Science Hub](https://tilburgsciencehub.com).
+   
++ **Make**: allows the workflow to run in a transparent and reproducible way. For installation and more information check the [tutorial](https://tilburgsciencehub.com/topics/automation/automation-tools/makefiles/make/) at [Tilburg Science Hub](https://tilburgsciencehub.com).
+
+**Additionally**, the following packages were used in this project, so ensure that you have them installed. Please use install.packages("NAME_OF_PACKAGE") to install them, or use library("NAME_OF_PACKAGE") to load the packages:
+
+```{r}
+library(R.utils)
+library(readr)
+library(data.table)
+library(dplyr)
+library(readr)
+library(data.table)
+library(tidyverse)
+library("geosphere")
+```
+### Getting Started
+
+1. **Install Necessary Programs:** Check running instructions.
+2. **Fork this Repository:** Replicate this repository to your personal GitHub account.
+Instructions
+
+### Running the Code
+#### Executing the makefile
+Executing the makefile is straighforward. This file will enable each code source to run in the right order, ultimately leading to the analysis results. After forking this repository, the following steps should be taken:
+1. **Clone the repository:** Navigate to the desired directory where you want to clone the repository, open Git or the terminal/command prompt. and type:
+```{r}
+git clone https://github.com/{your username}/team....
+```
+2. **Set Working Directory:** Change your working directory to the cloned folder using:
+```{r}
+cd .....
+```
+3. **Execute the make command:** Type make and all the source code will be executed.
+4. **See the Results:** In your local repository (in your computer), you can find the generated output with the regression results at:
+```{r}
+....
+```
+#### Running each source code file
+You can also run the project in a "manual" way, by executing the following files in the specified order:
+1. download.R
+2. clean.R
+3. regression_analysis.R
 
 ## More resources
 xxx
@@ -65,12 +114,12 @@ xxx
 This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program.
 
 ## Authors
-| Authors | email |
+| Authors | GitHub username |
 |----------|----------|
-| Catarina Luís Ferreira   | c.luisferreira@tilburguniversity.edu   |
-| Zeynep Yardimci Karaca    | z.yardimcikaraca@tilburguniversity.edu   |
-| Rebecca Keijzer| r.m.a.a.keijzer@tilburguniversity.edu   |
-| Joachiem Swart    | j.c.h.swart@tilburguniversity.edu |
+| Catarina Luís Ferreira   | catarinalsferreira   |
+| Zeynep Yardimci Karaca    | zeynepyardimcikaraca   |
+| Rebecca Keijzer| RebeccaKeijzer   |
+| Joachiem Swart    | JCHswart |
 
 
 
