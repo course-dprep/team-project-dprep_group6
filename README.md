@@ -12,9 +12,15 @@ For this research we will analyze the impact of a popular festival in Barcelona,
 **"Is it possible to create a model that helps Airbnb hosts to define the pricings of their listings?"**
 
 ## Method and Results
-The data was collected through the Inside Airbnb website (http://insideairbnb.com/get-the-data), for the city of Barcelona. The data was uploaded into RStudio, namely the CSV files of the listings and calendar.
-Regression Analysis is the method used in this research, since it is a powerful tool to examine the relationship between the festival season (independent variable) and the Airbnb Listing prices (dependent variable). 
-
+The data was collected through the Inside Airbnb website (http://insideairbnb.com/get-the-data), for the city of Barcelona. The data of listings and calendar was uploaded into RStudio, using the download.file() function.
+Using RMarkdown, it was possible to create some get relevant insights and statistics on the raw data, and further decide how the dataset was going to be cleaned and prepared for the analysis.
+To clean and prepare the data for analysis the following steps were taken:
+1. **Creation of a subset of calendar**, called ```fest_cal```, that consists of the calendar dataset during the days of the festival (29/05/2024 to 02/06/2024)
+Regression Analysis is the method used in this research, since it is a powerful tool to examine the relationship between the festival season (independent variable) and the Airbnb Listing prices (dependent variable).
+2. **Merge of the Listings and Calendar (festival) subsets**.
+3. **Filter the new subset by the listings located within 5 kms of the festival**, this was done by using the ```library(geosphere)`` and using the respective coordinates. This created the main dataset of analysis ```during_festival```.
+4. **Create the same subset for the comparison dataset**, in order to understand the price of the listings within 5 km of the festival, a subset containing the listings 2 weeks prior and after the festival was created.
+5. **Save the outputs to a csv file**, now the data is cleaned and prepared for the analysis.
 The influences on the price during the festival season was researched with the help of a linear regression, which revealed that the price is positively influenced by minimm nights and number of reviews. It was also shown that there was a significant price difference between the different types of room and the neighbourhood it was located in. Furthermore, the difference between the prices during the festival and normally was researched with a separate regression, which was shown to be approximately 13.23 euros higher during Primavera Sound compared to normally. 
 
 ### Variables
@@ -90,7 +96,7 @@ Instructions
 Executing the makefile is straighforward. This file will enable each code source to run in the right order, ultimately leading to the analysis results. After forking this repository, the following steps should be taken:
 1. **Clone the repository:** Navigate to the desired directory where you want to clone the repository, open Git or the terminal/command prompt. and type:
 ```{r}
-git clone https://github.com/{your username}/team....
+git clone https://github.com/{your username}/team-project-dprep_group6.git
 ```
 2. **Set Working Directory:** Change your working directory to the cloned folder using:
 ```{r}
