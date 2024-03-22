@@ -38,38 +38,23 @@ The influences on the price during the festival season was researched with the h
 
 ## Repository Overview
 
-###**src:** Includes source codes for data preparation and analysis
-###**data:** Raw data
-###**gen:** Analysis results, figures, and temporary files
-
+```{r}
 |-- data
-   |-- dataset1
 |-- gen
-   |-- analysis
-        |-- input
-   |-- data-preparation
-        |-- input
-   |-- paper
-        |-- input
-        |-- output
+   |-- output
+        |-- Deployment_data.RMD
+        |-- Deployment_data.pdf
 |-- src
    |-- analysis
-        |-- 5_regression_model
-        |-- clean-up_an
-   |-- data-preparation
-        |-- 0_installing_packages
-        |-- 1_data_download
-        |-- 2_data_cleaning
-        |-- 3_data_exploration
-        |-- 4_data_preparation
-        |-- clean-up_dp
-    |-- shinyapp
-        |-- 6_shinyapp
-|-- save_time_objects
+        |-- regression_analysis.R
+   |-- data_prep
+        |-- clean.R
+        |-- download.R
+        |-- makefile
 |-- .gitignore
 |-- README.md
 |-- makefile
-
+```
 ## Running instructions
 xxx
 
@@ -80,10 +65,19 @@ xxx
 This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program.
 
 ## Authors
-Catarina Luís Ferreira
+| Authors | email |
+|----------|----------|
+| Catarina Luís Ferreira   | c.luisferreira@tilburguniversity.edu   |
+| Zeynep Yardimci Karaca    | z.yardimcikaraca@tilburguniversity.edu   |
+| Rebecca Keijzer| r.m.a.a.keijzer@tilburguniversity.edu   |
+| Joachiem Swart    | j.c.h.swart@tilburguniversity.edu |
 
-Zeynep Yardimci Karaca
 
-Rebecca Keijzer 
 
-Joachiem Swart
+
+
+
+
+
+
+
