@@ -42,6 +42,34 @@ The influences on the price during the festival season was researched with the h
 ###**data:** Raw data
 ###**gen:** Analysis results, figures, and temporary files
 
+|-- data
+   |-- dataset1
+|-- gen
+   |-- analysis
+        |-- input
+   |-- data-preparation
+        |-- input
+   |-- paper
+        |-- input
+        |-- output
+|-- src
+   |-- analysis
+        |-- 5_regression_model
+        |-- clean-up_an
+   |-- data-preparation
+        |-- 0_installing_packages
+        |-- 1_data_download
+        |-- 2_data_cleaning
+        |-- 3_data_exploration
+        |-- 4_data_preparation
+        |-- clean-up_dp
+    |-- shinyapp
+        |-- 6_shinyapp
+|-- save_time_objects
+|-- .gitignore
+|-- README.md
+|-- makefile
+
 ## Running instructions
 xxx
 
