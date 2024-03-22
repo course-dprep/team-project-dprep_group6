@@ -75,8 +75,30 @@ knitr::kable(summary_df, caption = "Summary statistics of the price during the f
 
 ```
 
+```{r, echo=FALSE}
 
-Furthermore, Table 2 and 3 show that the minimum amounts of nights that you need to rent the listing, has an extremely different effect on the price of the listing. Before and after the festival, the price of the listings gets lower when the minimum amounts of nights is higher, while during the festival this is the opposite. 
+coefficients3 <- coef(price_off_during)
+std_errors3 <- summary(price_off_during)$coef[, "Std. Error"]
+t_values3 <- coefficients3 / std_errors3
+p_values3 <- summary(price_off_during)$coef[, "Pr(>|t|)"]
+
+
+regression_summary3 <- data.frame(
+  Coefficients = coefficients3,
+  `Std. Error` = std_errors3,
+  `t value` = t_values3,
+  `Pr(>|t|)` = p_values3
+)
+
+
+knitr::kable(regression_summary3, format = "markdown", digits = 4, caption = "The influence of the festival Primavera Sound on the price of Airbnb listings")
+
+
+
+```
+
+
+Furthermore, Table 3 and 4 show that the minimum amounts of nights that you need to rent the listing, has an extremely different effect on the price of the listing during the festival. Before and after Primavera Sound, the price of the listings gets lower when the minimum amounts of nights is higher, while during the festival this is the opposite. 
 
 
 ```{r, echo=FALSE}
@@ -125,7 +147,7 @@ knitr::kable(regression_summary2, format = "markdown", digits = 4, caption = "Th
 
 
 
-Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 4). The base model of the linear regression is an entire home/apt and a listing in the neighbourhood group Ciutat VellaThis. Thislinear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primevera Sound. 
+Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 5). The base model of the linear regression is an entire home/apt and a listing in the neighborhood group Ciutat VellaThis. This linear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primavera Sound. 
 
 
 ```{r, echo=FALSE}
@@ -144,7 +166,11 @@ regression_summary4 <- data.frame(
 )
 
 
-knitr::kable(regression_summary4, format = "markdown", digits = 4, caption = "Influece of number of reviews, minimum nights, room type and neighborhood group on price during the festival")
+knitr::kable(regression_summary4, format = "markdown", digits = 4, caption = "Influence of number of reviews, minimum nights, room type and neighborhood group on price during the festival")
 
 ```
 
+
+## Conclusion
+
+The results from the analyses show that there is indeed a significant price difference for Airbnb listings during the festival and normally, which answers the first hypothesis. Furthermore, it was also possible to create a model with which the prices of listings can be predicted during the festival . The price can be predicted based on the location, type of listings, minimum nights and the number or reviews. 
