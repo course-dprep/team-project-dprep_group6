@@ -147,7 +147,8 @@ knitr::kable(regression_summary2, format = "markdown", digits = 4, caption = "Th
 
 
 
-Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 5). The base model of the linear regression is an entire home/apt and a listing in the neighborhood group Ciutat VellaThis. This linear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primavera Sound. 
+Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 5). This linear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primavera Sound. 
+The base model of the linear regression is an entire home/apt and a listing in the neighborhood group Ciutat VellaThis. From the regression can be concluded that price is positively influenced by minimum nights and number of reviews. There is also a significant difference in price revealed between the different neighborhoods and room types. The least expensive is a private room in Sant Andreu, and the most expensive is a hotel room in Horta-Guinardó. 
 
 
 ```{r, echo=FALSE}
