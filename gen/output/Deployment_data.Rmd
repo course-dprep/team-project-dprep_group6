@@ -30,45 +30,21 @@ To answer these hypotheses, two datasets for Airbnb listings are used and analyz
 
 For the analysis of this research the means for the prices of the listings within 5 kilometers of the festival, are calculated and compared for during the festival and before/after. Moreover, four different linear regression are performed to get a deeper understanding of the differences between these periods. 
 
-First of all, the summary statistics for the price during Primavera Sound and during a normal period are presented below (Table 1). From the table can be concluded that the prices for during the festival are on average higher than the prices when the festival is not happening. This is further proven by the linear regression in table 2. The table shows that when the festival is not currently happening, the price of the listing is lowered by approximately 13.23. 
+First of all, the summary statistics for the price during Primavera Sound and during a normal period are presented below (Table 1). From the table can be concluded that the prices for during the festival are on average lower than the prices when the festival is not happening. This is further proven by the linear regression in table 2. The table shows that when the festival is not currently happening, the price of the listing is higher by approximately 0.61. However this variable is not signifcant, which means it does not contribute significantly to explaining the difference in price.
+
+
+
+
+
+
+
 
 
 ```{r, echo=FALSE}
-# Calculate summary statistics of mean_price_during
-min_value_during <- min(mean_price_during)
-q1_value_during <- quantile(mean_price_during, probs = 0.25)
-median_value_during <- median(mean_price_during)
-mean_value_during <- mean(mean_price_during)
-q3_value_during <- quantile(mean_price_during, probs = 0.75)
-max_value_during <- max(mean_price_during)
-
-# Calculate summary statistics of mean_price_off
-min_value_off <- min(mean_price_off)
-q1_value_off <- quantile(mean_price_off, probs = 0.25)
-median_value_off <- median(mean_price_off)
-mean_value_off <- mean(mean_price_off)
-q3_value_off <- quantile(mean_price_off, probs = 0.75)
-max_value_off <- max(mean_price_off)
-
-# Convert percentiles to numerical values
-q1_value_during <- as.numeric(q1_value_during)
-q3_value_during <- as.numeric(q3_value_during)
-q1_value_off <- as.numeric(q1_value_off)
-q3_value_off <- as.numeric(q3_value_off)
-
-# Create a data frame with summary statistics for mean_price_during and mean_price_off
-summary_df <- data.frame(
-  Variable = c("mean_price_during", "mean_price_off"),
-  Mean = c(mean_value_during, mean_value_off),
-  Median = c(median_value_during, median_value_off),
-  Min = c(min_value_during, min_value_off),
-  Max = c(max_value_during, max_value_off),
-  Q1 = c(q1_value_during, q1_value_off),
-  Q3 = c(q3_value_during, q3_value_off)
-)
+### Create a table of the summary statistics of price during the festival and normally
 
 
-knitr::kable(summary_df, caption = "Summary statistics of the price during the festival and and normally")
+knitr::kable(summary_df_during_off, caption = "Summary statistics of the price during the festival and and normally")
 
 
 
@@ -174,4 +150,4 @@ knitr::kable(regression_summary4, format = "markdown", digits = 4, caption = "In
 
 ## Conclusion
 
-The results from the analyses show that there is indeed a significant price difference for Airbnb listings during the festival and normally, which answers the first hypothesis. Furthermore, it was also possible to create a model with which the prices of listings can be predicted during the festival . The price can be predicted based on the location, type of listings, minimum nights and the number or reviews. 
+The results from the analyses show the prices during the festival are lower than they normally are. However the variable of the linear regression is not signicant, and should not be interpreted since it does not provide any meaninful explanation towards predicting the price. Furthermore, it was also possible to create a model with which the prices of listings can be predicted during the festival . The price can be predicted based on the location, type of listings, minimum nights and the number or reviews. 
