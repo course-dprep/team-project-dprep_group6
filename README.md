@@ -100,12 +100,12 @@ git clone https://github.com/{your username}/team-project-dprep_group6.git
 ```
 2. **Set Working Directory:** Change your working directory to the cloned folder using:
 ```{r}
-cd .....
+cd team-project-dprep_group6
 ```
 3. **Execute the make command:** Type make and all the source code will be executed.
 4. **See the Results:** In your local repository (in your computer), you can find the generated output with the regression results at:
 ```{r}
-....
+/team-project-dprep_group6/gen/output/Deployment_data.html
 ```
 #### Running each source code file
 You can also run the project in a "manual" way, by executing the following files in the specified order:
