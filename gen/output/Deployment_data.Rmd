@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, message = FALSE, include=FALSE}
 load("model_results.RData")
-install.packages("kableExtra", repos = "https://cloud.r-project.org/")
-library(kableExtra)
+library(stringr)
+
 ```
 
 ## Hypotheses
@@ -26,17 +26,67 @@ To answer these hypotheses, two datasets for Airbnb listings are used and analyz
 
 
 
-## Research method
+## Research analysis and results
 
 For the analysis of this research the means for the prices of the listings within 5 kilometers of the festival, are calculated and compared for during the festival and before/after. Moreover, four different linear regression are performed to get a deeper understanding of the differences between these periods. 
 
-```{r, message=FALSE, echo=FALSE}
+First of all, the summary statistics for the price during Primavera Sound and during a normal period are presented below (Table 1). From the table can be concluded that the prices for during the festival are on average higher than the prices when the festival is not happening. This is further proven by the linear regression in table 2. The table shows that when the festival is not currently happening, the price of the listing is lowered by approximately 13.23. 
+
+
+```{r, echo=FALSE}
+# Calculate summary statistics of mean_price_during
+min_value_during <- min(mean_price_during)
+q1_value_during <- quantile(mean_price_during, probs = 0.25)
+median_value_during <- median(mean_price_during)
+mean_value_during <- mean(mean_price_during)
+q3_value_during <- quantile(mean_price_during, probs = 0.75)
+max_value_during <- max(mean_price_during)
+
+# Calculate summary statistics of mean_price_off
+min_value_off <- min(mean_price_off)
+q1_value_off <- quantile(mean_price_off, probs = 0.25)
+median_value_off <- median(mean_price_off)
+mean_value_off <- mean(mean_price_off)
+q3_value_off <- quantile(mean_price_off, probs = 0.75)
+max_value_off <- max(mean_price_off)
+
+# Convert percentiles to numerical values
+q1_value_during <- as.numeric(q1_value_during)
+q3_value_during <- as.numeric(q3_value_during)
+q1_value_off <- as.numeric(q1_value_off)
+q3_value_off <- as.numeric(q3_value_off)
+
+# Create a data frame with summary statistics for mean_price_during and mean_price_off
+summary_df <- data.frame(
+  Variable = c("mean_price_during", "mean_price_off"),
+  Mean = c(mean_value_during, mean_value_off),
+  Median = c(median_value_during, median_value_off),
+  Min = c(min_value_during, min_value_off),
+  Max = c(max_value_during, max_value_off),
+  Q1 = c(q1_value_during, q1_value_off),
+  Q3 = c(q3_value_during, q3_value_off)
+)
+
+
+knitr::kable(summary_df, caption = "Summary statistics of the price during the festival and and normally")
+
+
+
+
+```
+
+
+Furthermore, Table 2 and 3 show that the minimum amounts of nights that you need to rent the listing, has an extremely different effect on the price of the listing. Before and after the festival, the price of the listings gets lower when the minimum amounts of nights is higher, while during the festival this is the opposite. 
+
+
+```{r, echo=FALSE}
+
 coefficients <- coef(minimum_nights_during_festival)
 std_errors <- summary(minimum_nights_during_festival)$coef[, "Std. Error"]
 t_values <- coefficients / std_errors
 p_values <- summary(minimum_nights_during_festival)$coef[, "Pr(>|t|)"]
 
-# Create a data frame with the extracted information
+
 regression_summary <- data.frame(
   Coefficients = coefficients,
   `Std. Error` = std_errors,
@@ -44,20 +94,22 @@ regression_summary <- data.frame(
   `Pr(>|t|)` = p_values
 )
 
-kable(regression_summary, format = "markdown", digits = 4) %>%
-  kable_styling() %>%
-  add_header_above(c(" ", "The effect of the minimum amounts of nights on the price of a listing during the festival" = 4))
+
+knitr::kable(regression_summary, format = "markdown", digits = 4, caption = "The influence of the minimum of nights on the price during the festival")
+
+
 
 ```
 
 
-```{r, message=FALSE, echo=FALSE}
+```{r, echo=FALSE}
+
 coefficients2 <- coef(minimum_nights_off_festival)
 std_errors2 <- summary(minimum_nights_off_festival)$coef[, "Std. Error"]
 t_values2 <- coefficients2 / std_errors2
 p_values2 <- summary(minimum_nights_off_festival)$coef[, "Pr(>|t|)"]
 
-# Create a data frame with the extracted information
+
 regression_summary2 <- data.frame(
   Coefficients = coefficients2,
   `Std. Error` = std_errors2,
@@ -65,23 +117,34 @@ regression_summary2 <- data.frame(
   `Pr(>|t|)` = p_values2
 )
 
-kable(regression_summary, format = "markdown", digits = 4) %>%
-  kable_styling() %>%
-  add_header_above(c(" ", "The effect of the minimum amounts of nights on the price of a listing before and after the festival" = 4))
+
+knitr::kable(regression_summary2, format = "markdown", digits = 4, caption = "The influence of the minimum of nights on the price before and after the festival")
 
 ```
 
 
-```{r cars}
-summary(cars)
+
+
+Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 4). The base model of the linear regression is an entire home/apt and a listing in the neighbourhood group Ciutat VellaThis. Thislinear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primevera Sound. 
+
+
+```{r, echo=FALSE}
+
+coefficients4 <- coef(everything_during_festival)
+std_errors4 <- summary(everything_during_festival)$coef[, "Std. Error"]
+t_values4 <- coefficients4 / std_errors4
+p_values4 <- summary(everything_during_festival)$coef[, "Pr(>|t|)"]
+
+
+regression_summary4 <- data.frame(
+  Coefficients = coefficients4,
+  `Std. Error` = std_errors4,
+  `t value` = t_values4,
+  `Pr(>|t|)` = p_values4
+)
+
+
+knitr::kable(regression_summary4, format = "markdown", digits = 4, caption = "Influece of number of reviews, minimum nights, room type and neighborhood group on price during the festival")
+
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
