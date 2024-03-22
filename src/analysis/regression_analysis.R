@@ -2,9 +2,9 @@
 library(readr)
 
 # load the datasets
-during_festival <- read.csv("src/data_prep/during_festival_data_cleaned.csv")
-off_festival <- read.csv("src/data_prep/off_festival_data_cleaned.csv")
-combined_price <- read.csv("src/data_prep/combined_price.csv")
+during_festival <- read.csv("../../src/data_prep/during_festival_data_cleaned.csv")
+off_festival <- read.csv("../../src/data_prep/off_festival_data_cleaned.csv")
+combined_price <- read.csv("../../src/data_prep/combined_price.csv")
 
 # estimate the mean of the prices during the festival and before/after
 mean_price_during<- mean(during_festival$price, na.rm = TRUE)
@@ -30,7 +30,7 @@ summary(minimum_nights_off_festival)
 minimum_nights_during_festival <- lm(price ~ minimum_nights, data = during_festival)
 summary(minimum_nights_during_festival)
 
-save(mean_price_during,mean_price_off,price_off_during,everything_during_festival,minimum_nights_off_festival,minimum_nights_during_festival,file="gen/output/model_results.RData")
+save(mean_price_during,mean_price_off,price_off_during,everything_during_festival,minimum_nights_off_festival,minimum_nights_during_festival,file="../../gen/output/model_results.RData")
 
 
 
