@@ -8,9 +8,11 @@ library(data.table)
 library(tidyverse)
 install.packages("geosphere")
 
+# open the datasets
 calendar <- fread('calendar.csv.gz')
 listings <- read_csv('listings.csv')
 
+# filter the dates of the festival
 #calendar[, date_fest := date=="2023-06-04" || date=="2023-06-03" || date=="2023-06-02" || date=="2023-06-01" || date=="2023-05-30" || date=="2023-05-29"]
 calendar[, date_fest := date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
 fest_cal = calendar[calendar$date %in% c("2024-06-02", "2024-06-01", "2024-05-31", "2024-05-30", "2024-05-29")]
@@ -20,6 +22,7 @@ fest_cal = calendar[calendar$date %in% c("2024-06-02", "2024-06-01", "2024-05-31
 listings$id <- as.integer(listings$id)
 listings_calendar<- fest_cal %>% left_join(listings, by=join_by(listing_id==id))
 
+# filter for an area of within 5km of the festival
 #PARC DEL FORUM LOCATION
 # Latitude: 41° 24' 23.99" N --> 41.40666389
 # Longitude: 2° 13' 8.52" E --> 2.21903333
@@ -70,7 +73,10 @@ weeks_prior <- calendar %>% filter (date >= as.Date("2024-05-15") & date <= as.D
 weeks_after <- calendar %>% filter (date >= as.Date("2024-06-03") & date <= as.Date("2024-06-17"))
 
 # Merge both data sets to have the comparison data
-off_festival <- union(weeks_prior,weeks_after)
+off_festival_total <- union(weeks_prior,weeks_after)
+
+# merge off_festival_total and close_to_the_festival
+off_festival <- left_join(close_to_the_festival, off_festival_total, by = join_by(listings_calendar.listing_id==listing_id))
 
 # remove the dollar signs in front of the prices and convert the variable to a numeric
 off_festival$price <- as.numeric(gsub("\\$", "", off_festival$price))
