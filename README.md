@@ -1,6 +1,6 @@
 # What is the impact of Summer Festivals on Airbnb Listings
 
-![Image](summerfestivals.jpg)
+![Image][https://support.musicgateway.com/wp-content/uploads/2023/04/rawImage-scaled.jpg]
 
 ## Motivation
 Summer festivals offer a fun and engaging experience that attracts more people every year, from all over the world. Factors like artist line up, type of activities or the city where the festival is located contribute to people traveling for these events. 
