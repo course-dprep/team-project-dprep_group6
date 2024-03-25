@@ -11,7 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, message = FALSE, include=FALSE}
 load("model_results.RData")
 library(stringr)
-
 ```
 
 ## Hypotheses
@@ -52,12 +51,10 @@ knitr::kable(summary_df_during_off, caption = "Summary statistics of the price d
 ```
 
 ```{r, echo=FALSE}
-
 coefficients3 <- coef(price_off_during)
 std_errors3 <- summary(price_off_during)$coef[, "Std. Error"]
 t_values3 <- coefficients3 / std_errors3
 p_values3 <- summary(price_off_during)$coef[, "Pr(>|t|)"]
-
 
 regression_summary3 <- data.frame(
   Coefficients = coefficients3,
@@ -66,24 +63,21 @@ regression_summary3 <- data.frame(
   `Pr(>|t|)` = p_values3
 )
 
-
 knitr::kable(regression_summary3, format = "markdown", digits = 4, caption = "The influence of the festival Primavera Sound on the price of Airbnb listings")
-
-
 
 ```
 
-
+\newpage
 Furthermore, Table 3 and 4 show that the minimum amounts of nights that you need to rent the listing, has an extremely different effect on the price of the listing during the festival. Before and after Primavera Sound, the price of the listings gets lower when the minimum amounts of nights is higher, while during the festival this is the opposite. 
 
 
 ```{r, echo=FALSE}
 
+# Linear regression for minimum nights and price during the festival
 coefficients <- coef(minimum_nights_during_festival)
 std_errors <- summary(minimum_nights_during_festival)$coef[, "Std. Error"]
 t_values <- coefficients / std_errors
 p_values <- summary(minimum_nights_during_festival)$coef[, "Pr(>|t|)"]
-
 
 regression_summary <- data.frame(
   Coefficients = coefficients,
@@ -92,21 +86,17 @@ regression_summary <- data.frame(
   `Pr(>|t|)` = p_values
 )
 
-
-knitr::kable(regression_summary, format = "markdown", digits = 4, caption = "The influence of the minimum of nights on the price during the festival")
-
-
+knitr::kable(regression_summary, format = "markdown", caption = "The influence of the minimum of nights on the price during the festival")
 
 ```
 
 
 ```{r, echo=FALSE}
-
+# Linear regression for minimum nights and price before and after the festival
 coefficients2 <- coef(minimum_nights_off_festival)
 std_errors2 <- summary(minimum_nights_off_festival)$coef[, "Std. Error"]
 t_values2 <- coefficients2 / std_errors2
 p_values2 <- summary(minimum_nights_off_festival)$coef[, "Pr(>|t|)"]
-
 
 regression_summary2 <- data.frame(
   Coefficients = coefficients2,
@@ -115,25 +105,25 @@ regression_summary2 <- data.frame(
   `Pr(>|t|)` = p_values2
 )
 
-
 knitr::kable(regression_summary2, format = "markdown", digits = 4, caption = "The influence of the minimum of nights on the price before and after the festival")
-
 ```
 
 
 
 
 Lastly, a linear regression is shown with the influence of the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival (Table 5). This linear regression gives a model that can be used by Airbnb hosts to define the pricing of their listings during Primavera Sound. 
-The base model of the linear regression is an entire home/apt and a listing in the neighborhood group Ciutat VellaThis. From the regression can be concluded that price is positively influenced by minimum nights and number of reviews. There is also a significant difference in price revealed between the different neighborhoods and room types. The least expensive is a private room in Sant Andreu, and the most expensive is a hotel room in Horta-Guinardó. 
+The base model of the linear regression is an entire home/apt and a listing in the neighborhood group Ciutat VellaThis. From the regression can be concluded that price is positively influenced by minimum nights and number of reviews. This means that the more reviews a host has, the higher the predicted price will be. The same goes for minimum nights, the price will be expected to be higher when the minimum amounts of nights the listing has to be rented goes up. Both of the variables have also a p-value below 0.05, which means that both minimum nights and number of reviews are strongly associated with variations in the price of the listing. The p-values below 0.05 indicate that these variables are highly likely to have a genuine effect on the predicted price, rather than being due to random chance. This suggests that both minimum nights and number of reviews play significant parts in predicting the price for Airbnb listings. 
 
+Furthermore,there is also a significant difference in price revealed between the different neighborhoods and room types. The least expensive is a private room in Sant Andreu, and the most expensive is a hotel room in Horta-Guinardó. From this can be concluded that even though the listings are all within five kilometers of the festival, and consequently in a relative close proximity of each other, the neighborhoods are significantly different to influence the price to this degree. The difference between the least and most expensive neighborhood is 377.69 euros, and for the room types this is 234.61 euros. However not all the dummy variables have a p-value low enough to make them significant. The shared room and Nou Barris are not significant in this linear regression, meaning that they can not be interpreted. Nevertheless, the other dummy variables do have a significant influence, we can still conclude that there is a difference between the prices for the different room types and neighborhoods. 
+
+\newpage
 
 ```{r, echo=FALSE}
-
+# Linear regression of the price and the number of reviews, the minimum nights, the room type and the neighborhood group on the price of the listings during the festival
 coefficients4 <- coef(everything_during_festival)
 std_errors4 <- summary(everything_during_festival)$coef[, "Std. Error"]
 t_values4 <- coefficients4 / std_errors4
 p_values4 <- summary(everything_during_festival)$coef[, "Pr(>|t|)"]
-
 
 regression_summary4 <- data.frame(
   Coefficients = coefficients4,
@@ -142,12 +132,10 @@ regression_summary4 <- data.frame(
   `Pr(>|t|)` = p_values4
 )
 
-
 knitr::kable(regression_summary4, format = "markdown", digits = 4, caption = "Influence of number of reviews, minimum nights, room type and neighborhood group on price during the festival")
-
 ```
 
 
 ## Conclusion
 
-The results from the analyses show the prices during the festival are lower than they normally are. However the variable of the linear regression is not signicant, and should not be interpreted since it does not provide any meaninful explanation towards predicting the price. Furthermore, it was also possible to create a model with which the prices of listings can be predicted during the festival . The price can be predicted based on the location, type of listings, minimum nights and the number or reviews. 
+The results from the analyses show the prices during the festival are lower than they normally are. However the variable of the linear regression is not significant, and should not be interpreted since it does not provide any meaningful explanation towards predicting the price. Furthermore, it was also possible to create a model with which the prices of listings can be predicted during the festival . The linear regression analysis shows a positive relationship between price and both minimum nights and number of reviews, supported by low p-values. Significant price disparities are observed across different neighborhoods and room types. While some dummy variables lack significance, indicating inconclusive interpretations, the overall analysis highlights the significant influence of minimum nights, number of reviews, and neighborhood characteristics on Airbnb listing prices during the festival.
