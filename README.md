@@ -11,7 +11,7 @@ For this research we will analyze the impact of a popular festival in Barcelona,
 
 **"Is it possible to create a model that helps Airbnb hosts to define the pricings of their listings?"**
 
-## Method and Results
+## Method
 The data was collected through the Inside Airbnb website (http://insideairbnb.com/get-the-data), for the city of Barcelona. The data of listings and calendar was uploaded into RStudio, using the download.file() function.
 Using RMarkdown, it was possible to create some get relevant insights and statistics on the raw data, and further decide how the dataset was going to be cleaned and prepared for the analysis.
 To clean and prepare the data for analysis the following steps were taken:
@@ -21,7 +21,7 @@ Regression Analysis is the method used in this research, since it is a powerful 
 3. **Filter the new subset by the listings located within 5 kms of the festival**, this was done by using the ```library(geosphere)``` and using the respective coordinates. This created the main dataset of analysis ```during_festival```.
 4. **Create the same subset for the comparison dataset**, in order to understand the price of the listings within 5 km of the festival, a subset containing the listings 2 weeks prior and after the festival was created.
 5. **Save the outputs to a csv file**, now the data is cleaned and prepared for the analysis.
-The influences on the price during the festival season was researched with the help of a linear regression, which revealed that the price is positively influenced by minimum nights and number of reviews, which was supported by low p-values. There are also significant price differences observed across the different neighborhoods and room types. While some dummy variables lack significance, indicating inconclusive interpretations, the overall analysis highlights the significant influence of minimum nights, number of reviews, and neighborhood characteristics on Airbnb listing prices during the festival. Furthermore, the difference between the prices during the festival and normally was researched with a separate linear regression, which was shown to be approximately 0.61 euros lower during Primavera Sound compared to the prices normally. 
+ 
 
 ### Variables
 
@@ -40,6 +40,9 @@ The influences on the price during the festival season was researched with the h
 | Latitude    | Latitude coordinate of the listing   |
 | Longitude    | Longitude coordinate of the listing  |
 
+### Results
+
+The influences on the price during the festival season was researched with the help of a linear regression, which revealed that the price is positively influenced by minimum nights and number of reviews, which was supported by low p-values. There are also significant price differences observed across the different neighborhoods and room types. While some dummy variables lack significance, indicating inconclusive interpretations, the overall analysis highlights the significant influence of minimum nights, number of reviews, and neighborhood characteristics on Airbnb listing prices during the festival. Furthermore, the difference between the prices during the festival and normally was researched with a separate linear regression, which was shown to be approximately 0.61 euros lower during Primavera Sound compared to the prices normally. This variable was also significant, which means that it has a notable impact on the price of the listings.
 
 
 ## Repository Overview
