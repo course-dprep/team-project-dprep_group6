@@ -113,9 +113,6 @@ You can also run the project in a "manual" way, by executing the following files
 2. clean.R
 3. regression_analysis.R
 
-## More resources
-xxx
-
 ## About
 This repository is made in the scope of the Data Preparation and Workflow Management class led by Hannes Datta at Tilburg School of Economics and Management. It's part of the Marketing Analytics Master's program.
 
