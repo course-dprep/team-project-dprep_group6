@@ -1,4 +1,4 @@
-# What is the impact of Summer Festivals on Airbnb Listings
+# What is the impact of Summer Festivals on Airbnb Listings?
 
 ![Image](https://support.musicgateway.com/wp-content/uploads/2023/04/rawImage-scaled.jpg)
 
